@@ -16,4 +16,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   MoveSpeed: 5
-  JumpForce: 3
+  JumpForce: 5
