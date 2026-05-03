@@ -29,7 +29,7 @@
                 {
                     "name": "",
                     "id": "3d008853-3a8a-7926-ed7c-0e64ff50a76c",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard",
@@ -39,25 +39,47 @@
                 },
                 {
                     "name": "",
-                    "id": "0187d8f7-314f-47c9-b907-f663db483ce2",
-                    "path": "<Keyboard>/a",
+                    "id": "5073f624-ec28-4fd1-8247-d00761cb1ca0",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
-                    "processors": "Scale(factor=-1)",
+                    "processors": "",
                     "groups": ";Keyboard",
-                    "action": "Move",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "549517e9-31f5-4c23-96a1-98b69eecd98e",
-                    "path": "<Keyboard>/d",
+                    "name": "KeyboardAD",
+                    "id": "0187d8f7-314f-47c9-b907-f663db483ce2",
+                    "path": "1DAxis",
                     "interactions": "",
-                    "processors": "Scale",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "549517e9-31f5-4c23-96a1-98b69eecd98e",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
                     "groups": ";Keyboard",
                     "action": "Move",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "a8e3c1d2-5b4f-4e6a-9c8d-1a2b3c4d5e6f",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

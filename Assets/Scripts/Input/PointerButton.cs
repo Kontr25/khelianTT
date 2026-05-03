@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace DefaultNamespace
+namespace InputService
 {
     public class PointerButton: MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
