@@ -376,8 +376,7 @@ GameObject:
   - component: {fileID: 2528770168418088446}
   - component: {fileID: 445252926515337795}
   - component: {fileID: 7229910319545880976}
-  - component: {fileID: 3056499667355598092}
-  - component: {fileID: 3072186062524540455}
+  - component: {fileID: 8998129392512238247}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -430,7 +429,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &445252926515337795
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -481,8 +480,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   _playerSettings: {fileID: 11400000, guid: b65a3167448b00847a15b2d2eda19ba0, type: 2}
   _rb: {fileID: 2528770168418088446}
-  playerGravityController: {fileID: 3056499667355598092}
---- !u!114 &3056499667355598092
+  _playerGravityController: {fileID: 8998129392512238247}
+  _inputService: {fileID: 0}
+--- !u!114 &8998129392512238247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -491,24 +491,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7256493835827836842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 963085631bd04964b616c6607e60d9b3, type: 3}
+  m_Script: {fileID: 11500000, guid: f0f197f039b67cc4490c88b6a747d563, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GravityController
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerGravityController
   _targetPlatform: {fileID: 0}
-  _playerRigidbody: {fileID: 2528770168418088446}
+  _playerRigidbody: {fileID: 0}
   _gravityPower: 9.81
---- !u!114 &3072186062524540455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7256493835827836842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87dbb86361604854bba5c2d2857745e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameplayInputService
-  player: {fileID: 7229910319545880976}
-  _jumpAction: {fileID: 7885837216189371043, guid: f4e8c2a1b3d5467890ab12cd34ef56ab, type: 3}
-  _moveAction: {fileID: -2705266908990084416, guid: f4e8c2a1b3d5467890ab12cd34ef56ab, type: 3}

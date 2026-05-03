@@ -9,10 +9,21 @@ public class PlayerGravityController : MonoBehaviour
     private Vector2 _currentGravityDirection;
     public Vector2 CurrentGravityDirection => _currentGravityDirection;
 
-    void FixedUpdate()
+    public void RefreshDirection()
     {
         Vector2 closestPoint = _targetPlatform.ClosestPoint(_playerRigidbody.position);
-        _currentGravityDirection = (closestPoint - _playerRigidbody.position).normalized;
-        _playerRigidbody.AddForce(_currentGravityDirection * _gravityPower);
+        Vector2 toPlatform = closestPoint - _playerRigidbody.position;
+        if (toPlatform.sqrMagnitude <= 0)
+            return;
+
+        _currentGravityDirection = toPlatform.normalized;
+    }
+
+    public void ApplyLocalGravityForce()
+    {
+        Vector2 worldDown = (Vector2)_playerRigidbody.transform.TransformDirection(new Vector3(0f, -1f, 0f));
+        if (worldDown.sqrMagnitude <= 0)
+            worldDown = _currentGravityDirection;
+        _playerRigidbody.AddForce(worldDown.normalized * (_gravityPower * _playerRigidbody.mass));
     }
 }

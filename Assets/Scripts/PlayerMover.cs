@@ -1,4 +1,3 @@
-using DefaultNamespace;
 using UnityEngine;
 
 public class PlayerMover
@@ -25,25 +24,24 @@ public class PlayerMover
 
     public void Move(float moveInput)
     {
-        Vector2 moveDirection = GetRightDirection(moveInput);
-        _rb.linearVelocity = new Vector2(
-            moveDirection.x * _moveSpeed,
-            moveDirection.y * _moveSpeed
-        );
-    }
+        Vector2 g = _playerGravityController.CurrentGravityDirection;
+        Vector2 n = g.sqrMagnitude > 0 ? g.normalized : Vector2.down;
 
-    private Vector2 GetRightDirection(float moveInput)
-    {
-        Vector2 gravity = _playerGravityController.CurrentGravityDirection;
-        return new Vector2(-gravity.y, gravity.x) * moveInput;
+        Vector2 v = _rb.linearVelocity;
+        float alongSurfaceNormal = Vector2.Dot(v, n);
+
+        Vector2 tangent = new Vector2(-n.y, n.x);
+        Vector2 tangentVel = tangent * (moveInput * _moveSpeed);
+
+        _rb.linearVelocity = alongSurfaceNormal * n + tangentVel;
     }
 
     public void Jump()
     {
         if (!IsGrounded()) return;
-        
-        Vector2 jumpDirection = -_playerGravityController.CurrentGravityDirection;
-        _rb.AddForce(jumpDirection * _jumpForce, ForceMode2D.Impulse);
+
+        Vector2 n = _playerGravityController.CurrentGravityDirection.normalized;
+        _rb.AddForce(-n * _jumpForce, ForceMode2D.Impulse);
     }
 
     private bool IsGrounded()
